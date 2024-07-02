@@ -1,0 +1,248 @@
+/* Applique des styles de base à tout le document */
+body {
+  font-family: Arial, sans-serif; /* Police de caractères */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0; /* Supprime les espacements internes par défaut */
+  box-sizing: border-box; /* Inclut les bordures et le padding dans la taille totale des éléments */
+  background-color: #f0f0f0; /* Couleur de fond */
+}
+
+/* Charger la police Pokemon Solid */
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url('assets/pokemon/Pokemon Solid.ttf') format('truetype');
+}
+
+/* Style de l'en-tête */
+header {
+  background-color: #ffcb05; /* Couleur de fond jaune */
+  padding: 20px; /* Espacement interne */
+  text-align: center; /* Centre le texte */
+  border-bottom: 2px solid #3b4cca; /* Bordure bleue en bas */
+  font-family: 'Pokemon Solid', Arial, sans-serif; /* Utilise la nouvelle police */
+}
+
+/* Style du champ de saisie et autres éléments de formulaire */
+input[type="text"], select, button {
+  padding: 10px; /* Espacement interne */
+  margin: 10px; /* Marge autour des éléments */
+  border-radius: 5px; /* Bordure arrondie */
+  border: 2px solid #3b4cca; /* Bordure bleue */
+}
+
+/* Style de la section de filtres */
+#filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Espacement entre les éléments */
+}
+
+/* Style de la section principale */
+main {
+  padding: 20px; /* Espacement interne */
+  display: flex; /* Utilisation du modèle flexbox */
+  flex-direction: column; /* Affichage en colonne */
+  align-items: center; /* Centre les éléments horizontalement */
+}
+
+/* Style de la liste des Pokémon */
+ul#pokemon-list {
+  list-style: none; /* Supprime les puces de la liste */
+  padding: 0; /* Supprime les espacements internes */
+  display: flex; /* Utilisation du modèle flexbox */
+  flex-wrap: wrap; /* Permet de faire passer les éléments sur une nouvelle ligne si nécessaire */
+  justify-content: center; /* Centre les éléments horizontalement */
+}
+
+/* Style pour chaque élément de la liste des Pokémon */
+.pokemon-item {
+  border: 1px solid #ddd; /* Bordure fine et grise */
+  border-radius: 10px; /* Angles arrondis */
+  padding: 10px; /* Espacement interne */
+  margin: 10px; /* Marges autour de chaque élément */
+  text-align: center; /* Centre le texte */
+  width: 150px; /* Largeur fixe */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère autour des éléments */
+  transition: transform 0.2s, border 0.2s; /* Transition pour l'agrandissement et la bordure */
+  cursor: pointer; /* Change le curseur pour indiquer que l'élément est cliquable */
+  overflow: hidden; /* Cache le contenu qui dépasse */
+  position: relative; /* Position relative pour le z-index */
+}
+
+/* Zoom sur survol */
+.pokemon-item:hover {
+  transform: scale(1.1); /* Zoom sur l'élément au survol */
+  z-index: 10; /* Met l'élément au-dessus des autres */
+}
+
+/* Style des images des Pokémon */
+.pokemon-item img {
+  width: 100px; /* Largeur fixe */
+  height: 100px; /* Hauteur fixe */
+}
+
+/* Style des titres des éléments de la liste */
+.pokemon-item h2 {
+  font-size: 1.2em; /* Taille de police plus grande */
+  margin: 0.5em 0; /* Marges verticales */
+  text-transform: capitalize; /* Capitalise les noms */
+}
+
+/* Style des paragraphes des éléments de la liste */
+.pokemon-item p {
+  margin: 0.5em 0; /* Marges verticales */
+}
+
+/* Ajout d'un style caché pour les détails */
+.pokemon-details {
+  display: none; /* Caché par défaut */
+  text-align: left; /* Aligner le texte à gauche */
+}
+
+/* Afficher les détails au survol */
+.pokemon-item:hover .pokemon-details {
+  display: block; /* Afficher les détails au survol */
+}
+
+/* Styles de fond pour les types */
+.pokemon-normal {
+  background-color: #A8A77A; /* Normal */
+}
+.pokemon-fire {
+  background-color: #FF6200; /* Fire */
+}
+.pokemon-water {
+  background-color: #12DBD4; /* Water */
+}
+.pokemon-electric {
+  background-color: #F7D02C; /* Electric */
+}
+.pokemon-grass {
+  background-color: #74DB6F; /* Grass */
+}
+.pokemon-ice {
+  background-color: #96D9D6; /* Ice */
+}
+.pokemon-fighting {
+  background-color: #C22E28; /* Fighting */
+}
+.pokemon-poison {
+  background-color: #A33EA1; /* Poison */
+}
+.pokemon-ground {
+  background-color: #E2BF65; /* Ground */
+}
+.pokemon-flying {
+  background-color: #A98FF3; /* Flying */
+}
+.pokemon-psychic {
+  background-color: #F95587; /* Psychic */
+}
+.pokemon-bug {
+  background-color: #A6B91A; /* Bug */
+}
+.pokemon-rock {
+  background-color: #B6A136; /* Rock */
+}
+.pokemon-ghost {
+  background-color: #735797; /* Ghost */
+}
+.pokemon-dragon {
+  background-color: #6F35FC; /* Dragon */
+}
+.pokemon-dark {
+  background-color: #705746; /* Dark */
+}
+.pokemon-steel {
+  background-color: #B7B7CE; /* Steel */
+}
+.pokemon-fairy {
+  background-color: #D685AD; /* Fairy */
+}
+.pokemon-default {
+  background-color: #ccc; /* Couleur par défaut pour les types non spécifiés */
+}
+
+/* Styles pour les favoris (bordure) */
+.favorite-border {
+  border: 4px solid #FFD700; /* Or pour les favoris */
+}
+
+/* Style pour l'étoile des favoris */
+.favorite-star {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+/* Style pour le bouton de favoris dans la bannière */
+#toggle-favorites {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+
+/* Style pour le conteneur des détails des Pokémon */
+#pokemon-details {
+  flex-basis: 100%; /* Occupe toute la largeur */
+  padding: 20px; /* Espacement interne */
+  text-align: center; /* Centre le texte */
+  background-color: #fff; /* Fond blanc */
+  border: 1px solid #ddd; /* Bordure fine et grise */
+  border-radius: 10px; /* Angles arrondis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  margin-top: 20px; /* Marge en haut */
+}
+
+/* Style des titres dans le conteneur des détails */
+.pokemon-details h2 {
+  font-size: 2em; /* Taille de police plus grande */
+  margin-bottom: 10px; /* Marge en bas */
+}
+
+/* Style des images dans le conteneur des détails */
+.pokemon-details img {
+  width: 150px; /* Largeur fixe */
+  height: 150px; /* Hauteur fixe */
+}
+
+/* Style des listes dans le conteneur des détails */
+.pokemon-details ul {
+  list-style: none; /* Supprime les puces de la liste */
+  padding: 0; /* Supprime les espacements internes */
+}
+
+/* Style des éléments de liste dans le conteneur des détails */
+.pokemon-details li {
+  margin: 5px 0; /* Marges verticales */
+  font-size: 0.9em; /* Réduction de la taille de la police */
+}
+
+/* Styles pour le thème clair */
+body.light-theme {
+  background-color: #f0f0f0; /* Couleur de fond pour le thème clair */
+  color: #000; /* Couleur du texte pour le thème clair */
+}
+
+header.light-theme {
+  background-color: #ffcb05; /* Couleur de fond de l'en-tête pour le thème clair */
+}
+
+/* Styles pour le thème sombre */
+body.dark-theme {
+  background-color: #303030; /* Couleur de fond pour le thème sombre */
+  color: #fff; /* Couleur du texte pour le thème sombre */
+}
+
+header.dark-theme {
+  background-color: #444; /* Couleur de fond de l'en-tête pour le thème sombre */
+}
+
+/* Ajout de dégradés pour les Pokémon avec deux types */
+.pokemon-item.gradient {
+  background: linear-gradient(to right, var(--type-color1), var(--type-color2)); /* Dégradé de couleur */
+}
